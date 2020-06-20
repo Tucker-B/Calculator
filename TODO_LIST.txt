@@ -1,0 +1,5 @@
+// 1. Add keydown functionality
+// 2. Add decimal/float input support
+// 3. Make UI larger and more styled
+// 4. Multiple operators (e.g. 12 + 7 - 5 * 3)
+// 5. Catch error when user tries to divide by 0
