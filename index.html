@@ -7,10 +7,20 @@
     </head>
     <body>
         <h1>Tucker's Calculator</h1>
-        <label for="num" id="num"></label>
+        
         <br>
         <div id="button-layout">
-            <button id = "1" key = "49">1</button>
+            <div id="input-box">
+                <label for="" id="input-label">Input:</label>
+                <label for="num" id="num"></label>
+                <div id="separator"></div>
+                <label for="" style="left: 51%; position: absolute">Output:</label>
+                <label for="" id="result" style="left: 55%; position: absolute"></label>
+            </div>
+            
+            
+            <br>
+            <button id = "1" key = "49" style="margin-top: 5%;">1</button>
             <button id = "2" key = "50">2</button>
             <button id = "3" key = "51">3</button>
             <button id = "+" key = "187">+</button>
@@ -23,19 +33,19 @@
             <button id = "7" key = "55">7</button>
             <button id = "8" key = "56">8</button>
             <button id = "9" key = "57">9</button>
-
-            <button id = "=" key = "187">=</button>
+            <button id = "=" key = "13">=</button>
             <br>
             <button id = "0" key = "48">0</button>
             <button id = "*" key = "170">*</button>
             <button id = "/" key = "191">/</button>
             <button id = "." key = "190">.</button>
             <br>
-            <button id = "C" key = "67">C</button>
+            <button id = "C" key = "67">Clear</button>
+            
+            
         </div>
         <br>
-        <label for="">Result: </label>
-        <label for="" id="result"></label>
+        
 
         <script src="./script.js"></script>
     </body>

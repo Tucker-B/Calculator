@@ -1,4 +1,3 @@
 
 // 1. Round decimals to nearest hundredths place
-// 2. Make UI larger and more styled
-// 3. Add comments
+

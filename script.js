@@ -1,3 +1,67 @@
+function determineKeycode(keyCode) {
+    switch (keyCode) {
+        case 48:
+            return '0';
+            break;
+        case 49:
+            return '1';
+            break;
+        case 50:
+            return '2';
+            break;
+        case 51:
+            return '3';
+            break;
+        case 52:
+            return '4';
+            break;
+        case 53:
+            return '5';
+            break;
+        case 54:
+            return '6';
+            break;
+        case 55:
+            return '7';
+            break;
+        case 56:
+            return '8';
+            break;
+        case 57:
+            return '9';
+            break;
+        case 107:
+        case 187:
+            return '+';
+            break;
+        case 109:
+        case 189:
+            return '-';
+            break;
+        case 106:
+        case 170:
+            return '*';
+            break;
+        case 111:
+        case 191:
+            return '/';
+            break;
+        case 110:
+        case 190:
+            return '.';
+            break;
+        case 67: 
+            return 'C';
+            break;
+        case 13:
+            return '=';
+            break;
+        
+        default:
+            break;
+    }
+}
+
 function add(a, b) {
     return a + b;
 }
@@ -132,70 +196,18 @@ document.getElementById("button-layout").addEventListener('click', (event) => {
     
 });
 
-function determineKeycode(keyCode) {
-    switch (keyCode) {
-        case 48:
-            return '0';
-            break;
-        case 49:
-            return '1';
-            break;
-        case 50:
-            return '2';
-            break;
-        case 51:
-            return '3';
-            break;
-        case 52:
-            return '4';
-            break;
-        case 53:
-            return '5';
-            break;
-        case 54:
-            return '6';
-            break;
-        case 55:
-            return '7';
-            break;
-        case 56:
-            return '8';
-            break;
-        case 57:
-            return '9';
-            break;
-        case 187:
-            return '+';
-            break;
-        case 189:
-            return '-';
-            break;
-        case 170:
-            return '*';
-            break;
-        case 191:
-            return '/';
-            break;
-        case 190:
-            return '.';
-            break;
-        case 67: 
-            return 'C';
-            break;
-        default:
-            break;
-    }
-}
-
 window.addEventListener('keydown', (event) => {
+    // Gets keycode from keydown event
     let key = event.keyCode;
     console.log(`key: ${key}`);
+    // Gets button with the property "key" with the value of the keycode
     const dataKey = document.querySelector(`button[key="${key}"]`);
-
-
+    // Checks if the button with that keycode exists
     if (dataKey) {
         let labelElement = document.getElementById("num");
         let labelContent = labelElement.textContent;
+
+        // Converts keycode into char. e.g. keycode 49 == '1'
         let userInput = determineKeycode(key);
 
         calculater(userInput, labelElement, labelContent);
