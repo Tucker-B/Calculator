@@ -1,4 +1,4 @@
-// 1. Add keydown functionality
-// 2. Round decimals to nearest hundredths place
-// 3. Make UI larger and more styled
-// 4. Add comments
+
+// 1. Round decimals to nearest hundredths place
+// 2. Make UI larger and more styled
+// 3. Add comments
