@@ -11,13 +11,18 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return a / b;
+    // Catches dividing by zero
+    if (b == 0) {
+        return "Can't divide by 0.";
+    } else {
+        return a / b;
+    }
 }
 
 function operate(operator, a , b) {
-
-    a = parseInt(a);
-    b = parseInt(b);
+    // a & b come in as strings, so parse them as numbers/floats
+    a = parseFloat(a);
+    b = parseFloat(b);
 
     switch (operator) {
         case '+':
@@ -41,48 +46,36 @@ function operate(operator, a , b) {
             break;
     }
 }
-
-function includesNumber(str) {
-    let strArray = str.slice(0);
-    if (typeof strArray[0] == Number) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
+// Checks whether current input is an operator
 function containsOperator(operator) {
-    console.log("Inside containsOperator function");
     switch (operator) {
         case '+':
-            console.log("Returned true: +");
             return true;
             break;
         case '-':
-            console.log("Returned true: -");
             return true;
             break;
 
         case '*':
-            console.log("Returned true: *");
             return true;
             break;
 
         case '/':
-            console.log("Returned true: /");
             return true;
             break;
 
         default:
-            console.log("Returned false");
             return false;
             break;
     }
 }
-
+// Keeps track of where in the equation we are. E.g. first num = 1, operator = 2, second num then '=' = 3
 var place = 0;
+// Operator for equation: '+', '-', '*', or '/'
 var operator = '';
+// First number in equation
 var a = "";
+// Second number in equation
 var b = "";
 
 document.getElementById("button-layout").addEventListener('click', (event) => {
@@ -91,7 +84,7 @@ document.getElementById("button-layout").addEventListener('click', (event) => {
     let labelContent = labelElement.textContent;
     // Checks if input is in fact a number & !NaN
     let parsedNumber = Number(event.target.id);
-    if (place <= 2 && parsedNumber == event.target.id) {
+    if (place <= 2 && (parsedNumber == event.target.id || event.target.id == '.')) {
         labelElement.textContent += event.target.id;    
         if (place < 2) {
             place = 1;
@@ -103,8 +96,8 @@ document.getElementById("button-layout").addEventListener('click', (event) => {
         labelElement.textContent += event.target.id;
         place = 2;
         operator = event.target.id;
-    } else if (place == 2 && event.target.id == '=') {
-        labelElement.textContent += event.target.id;
+    } else if (place == 2 && (event.target.id == '=' || (operator == '/' && b == '0'))) {
+        labelElement.textContent += '=';
         let numResult = operate(operator, a, b);
         let labelResult = document.getElementById("result");
         labelElement.textContent += numResult;

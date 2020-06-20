@@ -14,10 +14,13 @@ h1 {
     text-align: center;
     border-style: solid;
 
-
-
     border-radius: 5%;
     border-color: black;
     border-width: 1px;
     display: inline-block;  
+}
+
+#C {
+    padding-left: 40%;
+    padding-right: 40%;
 }
