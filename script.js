@@ -91,7 +91,7 @@ document.getElementById("button-layout").addEventListener('click', (event) => {
     let labelContent = labelElement.textContent;
     // Checks if input is in fact a number & !NaN
     let parsedNumber = Number(event.target.id);
-    if (parsedNumber == event.target.id && place <= 2) {
+    if (place <= 2 && parsedNumber == event.target.id) {
         labelElement.textContent += event.target.id;    
         if (place < 2) {
             place = 1;
@@ -99,8 +99,7 @@ document.getElementById("button-layout").addEventListener('click', (event) => {
         } else if (place == 2) {
             b += event.target.id;
         }
-    } else if (containsOperator(event.target.id) && place == 1) {
-        console.log("Inside second if statement");
+    } else if (place == 1 && containsOperator(event.target.id)) {
         labelElement.textContent += event.target.id;
         place = 2;
         operator = event.target.id;
@@ -111,6 +110,12 @@ document.getElementById("button-layout").addEventListener('click', (event) => {
         labelElement.textContent += numResult;
         labelResult.textContent = numResult;
         place = 3;
+    } else if (place == 2 && containsOperator(event.target.id)) {
+        a = operate(operator, a, b);
+        b = "";
+        place = 2;
+        operator = event.target.id;
+        labelElement.textContent = a + operator;
     } else if (event.target.id == 'C') {
         place = 0;
         operator = '';
